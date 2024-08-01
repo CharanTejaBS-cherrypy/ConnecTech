@@ -1,0 +1,8 @@
+<h1>Communities</h1>
+<ul>
+  {% for community in communities %}
+  <li>
+    <a href="{% url 'community_detail' community.pk %}">{{ community.name }}</a>
+  </li>
+  {% endfor %}
+</ul>

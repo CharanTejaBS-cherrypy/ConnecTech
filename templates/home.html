@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+                          body {
+                            font-family: "Roboto", sans-serif;
+                            background-color: var(--background-color);
+                            color: var(--text-color);
+                            transition: background-color 0.3s, color 0.3s;
+                            height: 100vh;
+                            margin: 0;
+                            display: flex;
+                            overflow-y:hidden;
+                            flex-direction: column;
+                          }
+
+                          header {
+                            background-color: var(--navbar-color);
+                          }
+
+                          .navbar-dark .navbar-nav .nav-link {
+                            color: var(--navbar-text-color);
+                            transition: color 0.3s;
+                          }
+
+                          .navbar-dark .navbar-nav .nav-link:hover {
+                            color: var(--navbar-hover-color);
+                          }
+
+                          .navbar-nav {
+                            align-items: center;
+                          }
+
+                          .navbar-brand {
+                            font-weight: bolder;
+                            text-shadow: 0.2px 0.5px 2px rgba(255, 255, 255, 0.7);
+                            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+                              "Lucida Sans", Arial, sans-serif;
+                            font-size: 30px;
+                            transition: color 0.3s, text-shadow 0.3s;
+                          }
+
+                          .light-theme .navbar-brand {
+                            color: #236236;
+                            text-shadow: 0.2px 0.5px 2px rgba(0, 0, 0, 0.3);
+                          }
+
+                          .light-theme .navbar-brand:hover {
+                            color: #ff5100;
+                            text-shadow: 0.2px 0.5px 2px rgba(0, 0, 0, 0.3);
+                          }
+
+                          main {
+                            flex: 1;
+                            display: flex;
+                            flex-direction: row;
+                            padding: 0;
+                          }
+
+                          .column {
+                            padding: 20px;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                          }
+
+                          .left-column column-content{
+                            overflow-y:auto;
+                            max-height:600px;
+                          }
+
+                          .left-column,
+                          .right-column {
+                            width: 20%;
+                            background-color: var(--column-background-color);
+                          }
+
+                          .chead{
+                            font-size:1.5rem;
+                            font-weight:bolder;
+                            color:var(--heading-color)
+                          }
+
+                          .right-column {
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 20px;
+                          }
+
+                          .right1-column-content {
+                            margin-bottom: 10px;
+                            height: 70%;
+                            background-color: var(--column-inner-background-color);
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            border-radius: 10px;
+                            padding: 20px;
+                            box-sizing: border-box;
+                            width: 100%;
+                            background-position: relative;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            {% comment %} background-image: url('https://png.pngtree.com/png-clipart/20230811/original/pngtree-coming-soon-green-vector-board-sign-illustration-picture-image_7864627.png'); {% endcomment %}
+                          }
+                          .right2-column-content {
+                            margin-bottom: 10px;
+                            height: 16%;
+                            background-color: var(--column-inner-background-color);
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            border-radius: 10px;
+                            padding: 20px;
+                            box-sizing: border-box;
+                            width: 100%;
+                          }
+
+                          .middle-column {
+                            padding: 0px;
+                            width: 60%;
+                            background-color: var(--main-content-background-color);
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            align-items: center;
+                            position: relative;
+                            height: calc(100vh - 110px);
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                          }
+
+                          .column-content {
+                            width: 100%;
+                            height: 100%;
+                            background-color: var(--column-inner-background-color);
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            border-radius: 10px;
+                            padding: 20px;
+                            box-sizing: border-box;
+                            padding-left: 34px;
+                          }
+
+                          .heading {
+                            font-size: 3rem;
+                            text-align: center;
+                            margin-bottom: 20px;
+                            color: var(--heading-color);
+                          }
+
+                          :root {
+                            --background-color: #322f2f;
+                            --text-color: #f5f5f5;
+                            --navbar-color: #4c5b52;
+                            --navbar-text-color: #ffffff;
+                            --navbar-hover-color: #b0b0b0;
+                            --column-background-color: #3a3a3a;
+                            --main-content-background-color: #4a4a4a;
+                            --column-inner-background-color: #575757;
+                            --heading-color: #24b024;
+                          }
+
+                          .light-theme {
+                            --background-color: #f0f0f0;
+                            --text-color: #302d2d;
+                            --navbar-color: #ffffff;
+                            --navbar-text-color: #302d2d;
+                            --navbar-hover-color: #606060;
+                            --column-background-color: #e0e0e0;
+                            --main-content-background-color: #d0d0d0;
+                            --column-inner-background-color: #ffffff;
+                            --heading-color: #236236;
+                          }
+
+                          .toggle-switch {
+                            position: relative;
+                            display: inline-block;
+                            width: 45px;
+                            height: 25px;
+                          }
+
+                          .toggle-switch input {
+                            opacity: 0;
+                            width: 0;
+                            height: 0;
+                          }
+
+                          .slider {
+                            position: absolute;
+                            cursor: pointer;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background-color: #ccc;
+                            transition: 0.4s;
+                            border-radius: 34px;
+                          }
+
+                          .slider:before {
+                            position: absolute;
+                            content: "";
+                            height: 17px;
+                            width: 17px;
+                            left: 4px;
+                            bottom: 4px;
+                            background-color: white;
+                            transition: 0.4s;
+                            border-radius: 50%;
+                          }
+
+                          input:checked + .slider {
+                            background-color: #187345;
+                          }
+
+                          input:checked + .slider:before {
+                            transform: translateX(20px);
+                          }
+
+
+
+                          img {
+                            width: 100%;
+                            border: white 5px solid;
+                            border-radius: 10px;
+                            margin-top: -5px;
+                          }
+
+                          @media (max-width: 992px) {
+                            .left-column,
+                            .right-column {
+                              width: 25%;
+                            }
+
+                            body{
+                              overflow-y:auto;
+                            }
+
+                            .middle-column {
+                              width: 50%;
+                            }
+                          }
+
+                          @media (max-width: 768px) {
+                            main {
+                              flex-direction: column;
+                            }
+
+                            i {
+                              font-size: 24px;
+                              margin-right: 8px;
+                            }
+
+
+                            .right2-column-contentP{
+                              display: flex;
+                              flex-direction: row;
+                            }
+
+                            .Image{
+                              width: 55%;
+                              height: 45%;
+                              margin:0;
+                            }
+
+
+                          .right1-column-content {
+                            margin-bottom: 10px;
+                            height: 50%;
+                            background-color: var(--column-inner-background-color);
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            border-radius: 10px;
+                            padding: 20px;
+                            box-sizing: border-box;
+                            width: 100%;
+                            background-position: relative;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            {% comment %} background-image: url('https://png.pngtree.com/png-clipart/20230811/original/pngtree-coming-soon-green-vector-board-sign-illustration-picture-image_7864627.png'); {% endcomment %}
+                          }
+
+                          .right2-column-content {
+                            height: 25%;
+                          }
+
+                            body{
+                              overflow-y:auto;
+                            }
+
+                            .left-column,
+                            .right-column {
+                              width: 100%;
+                              display: flex;
+                            }
+
+                            .left-column,
+                            .middle-column,
+                            .right-column {
+                              height: auto;
+                            }
+                            .middle-column {
+                              width: 100%;
+                              height:600px;
+                              overflow-y: auto;
+                              overflow-x: fixed;
+                            }
+
+
+
+                            .left-column column-content{
+                              overflow-y:auto;
+                              max-height:200px;
+                            }
+
+                            .sp {
+                              position:absolute;
+                              top: 0;
+                              z-index: 100;
+                              background-color: var(--background-color);
+                              width: 100%;
+                              margin: 0; /* Remove any margin */
+                              padding: 10px; /* Optional: Add some padding if needed */
+                              opacity: 0.9;
+                            }
+
+                          }
+
+                          .pc {
+                            background-color: rgba(106, 116, 113, 0.228);
+                            margin: 30px;
+                            width: 90%;
+                            border-radius: 20px;
+                            border: white solid 0.2px;
+                            box-shadow: rgba(106, 116, 113, 0.228) 0px 0px 5px;
+                            padding: 10px;
+                            margin-bottom: 20px;
+                          }
+
+                          .pun {
+                            margin-left: 10px;
+                            color: rgb(6, 8, 79);
+                            margin-top: 0px;
+                            font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+                              "Lucida Sans", Arial, sans-serif;
+                          }
+
+                          .post-details {
+                            display: flex;
+                            align-items: center;
+                            margin-left: 30px;
+                          }
+
+                          .description {
+                            margin-left:-20px;
+                            max-width: 100%;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            margin-right: 10px;
+                            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                          }
+
+                          .description.expanded {
+                            white-space: normal;
+                            max-width: none;
+                            font-weight: bolder;
+                          }
+
+                          .read-more {
+                            color: rgb(48, 177, 99);
+                            cursor: pointer;
+                            margin-left: 5px;
+                            font-size:12px;
+                          }
+
+                          {% comment %} .like-button {
+                            border: none;
+                            background: none;
+                            cursor: pointer;
+                            color: rgb(59, 91, 100);
+                            font-size: 1.5em;
+                            margin-right: 10px;
+                          }
+
+                          .like-button.liked {
+                            color: rgb(5, 87, 11);
+                          }
+
+                          .like-button .likes-count {
+                            margin-left: 5px;
+                            font-size: 1em;
+                          } {% endcomment %}
+
+                          .created-time {
+                            {% comment %} display: flex;
+                            align-items: center;
+                            cursor: pointer;
+                            margin-right: 10px;
+                            position: relative; {% endcomment %}
+                          }
+
+                          .created-time i {
+                            display:none;
+                            margin-right: 5px;
+                          }
+
+                          .time-card {
+                            float:right;
+                            {% comment %} border: 1px solid #ccc; {% endcomment %}
+                            padding: 10px;
+                            {% comment %} border-radius: 5px; {% endcomment %}
+                            {% comment %} box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); {% endcomment %}
+                            {% comment %} top: 20px; {% endcomment %}
+                            margin-top:-40px;
+                            font-size:12px;
+                          }
+
+                          .btn {
+                            border: #24b024 solid 1px;
+                            background-color: #53966a;
+                            position: sticky;
+                            bottom: 10px;
+                            margin-left: 90%;
+                            z-index: 1;
+                            border-radius: 20%;
+                            margin-right: 24px;
+                          }
+
+                          .btn:hover {
+                            border-radius: 20%;
+                            transform: scale(1.05);
+                            background: linear-gradient(
+                              45deg,
+                              rgba(12, 118, 66),
+                              rgb(22, 203, 22),
+                              rgba(45, 135, 20)
+                            );
+                            color: #ffffff;
+                            box-shadow: 0 0px 6px rgba(0, 0, 0, 0.034);
+                          }
+
+                          .sp {
+                            position: sticky;
+                            top: 0;
+                            z-index: 100;
+                            background-color: var(--background-color);
+                            width: 100%;
+                            margin: 0; /* Remove any margin */
+                            padding: 10px; /* Optional: Add some padding if needed */
+                            opacity: 0.95;
+                          }
+
+                          .community-item {
+                            display: block;
+                            width: 90%;
+                            margin: 10px 0;
+                            padding: 10px;
+                            border: none;
+                            border-radius: 10px;
+                            background-color: var(--heading-color);
+                            color: var(--main-content-background-color);
+                            text-align: center;
+                            transition: transform 0.3s ease, background-color 0.3s ease,
+                              box-shadow 3s ease;
+                            cursor: pointer;
+                            position: relative;
+                          }
+
+                          .community-item:hover {
+                            transform: scale(1.05);
+                            background-color: #24b024;
+                            color: #ffffff;
+                            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                          }
+
+                          .community-item::after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            border-radius: 10px;
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                            background: linear-gradient(
+                              45deg,
+                              rgba(12, 118, 66, 0.5),
+                              rgba(0, 255, 0, 0.5),
+                              rgba(45, 135, 20, 0.5)
+                            );
+                            z-index: 100;
+                          }
+
+                          .community-item:hover::after {
+                            opacity: 1;
+                          }
+
+
+                          .right1-column-content {
+                            position: relative;
+                            padding-bottom: 50px; /* space for the button */
+                          }
+
+
+                          .modal {
+                            display: none;
+                            position: fixed;
+                            z-index: 100000;
+                            left: 0;
+                            border-radius: 20px;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            overflow: auto;
+                            color:green;
+                            background-color: rgba(54, 104, 69, 0.4);
+                          }
+
+                          .modal-content {
+                            background-color: #fefefe;
+                            margin: 15% auto;
+                            padding: 20px;
+                            border: 1px solid #888;
+                            width: 90%;
+                            color:green;
+                          }
+
+                          /* Container for the ideas */
+                    .ideas-container {
+                      display: flex;
+                      flex-wrap: wrap;
+                      justify-content: space-around;
+                      padding: 2px;
+                      margin: 0 auto;
+                      background-color: var(--column-inner-background-color);
+                      border-radius: 10px;
+                      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                      max-height: 180px;
+                      overflow-y: auto;
+                      overflow-x: hidden; /* Fixed overflow-x to hidden */
+                    }
+
+                    /* Individual idea card styling */
+                    .ideaN {
+                      flex: 1 1 200px; /* Flexible basis and growth for responsiveness */
+                      margin: 5px;
+                      padding: 4px 5px;
+                      background-color: var(--column-background-color);
+                      border: 1px solid #ddd;
+                      border-radius: 8px;
+                      transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+                      text-align: center;
+                      color: var(--text-color);
+                      text-decoration: none;
+                      display: block;
+                      font-size:16px;
+                    }
+
+                    .ideaN:hover {
+                      text-decoration: none;
+                      color: white;
+                      background-color: var(--heading-color); /* Color on hover */
+                      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                    }
+
+                    /* New Idea button styling */
+                    .new-idea-btn {
+                      position: absolute;
+                      bottom: 10px;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      border: none;
+                      border-radius: 10px;
+                      background-color: var(--heading-color);
+                      color: white;
+                      font-size: 20px;
+                      padding: 0px 10px;
+                      cursor: pointer;
+                      transition: background-color 0.3s ease;
+                    }
+
+                    .new-idea-btn:hover {
+                      background-color: #188d29; /* Darker color on hover */
+                    }
+
+                    .G{
+                      display:flex;
+                      flex-direction: row;
+                    }
+                    .Image{
+                      width:75%;
+                      height:75%;
+                      margin:10px;
+                    }
+
+                    /* Social Media Follow Pop-up CSS */
+        .popup {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1000; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color:var(--background-color); /* Black w/ opacity */
+          {% comment %} border-radius:20px; {% endcomment %}
+        }
+
+        .popup-content {
+          background-color:var(--column-background-color);
+          margin: 15% auto; /* 15% from the top and centered */
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%; /* Could be more or less, depending on screen size */
+          max-width: 500px;
+          text-align: center;
+          color:var(--heading-color);
+          border-radius:20px;
+        }
+
+        .close-button {
+          color: green;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+          color: rgb(237, 57, 12);
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        .social-icons .social-icon {
+          display: inline-block;
+          margin: 10px;
+          font-size: 40px; /* Adjust as needed */
+          color:var(--navbar-color);
+          transition: color 0.3s;
+        }
+
+        .social-icons .social-icon:hover {
+          color:var(--heading-color); /* Change to the desired hover color */
+        }
+
+
+        #i {
+          font-size: 36px;
+          margin-right: 8px;
+          margin-left: 8px;
+          color: var(--heading-color);
+        }
+        #i:hover {
+          font-size: 36px;
+          margin-right: 8px;
+          margin-left: 8px;
+          color:var(--text-color);
+        }
+        .right2-column-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-around; /* Distribute space around items */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">ConnecTech</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span
+            class="navbar-toggler-icon"
+            style="
+              background-color: rgb(17, 116, 45);
+              padding: 12px;
+              border-radius: 10px;
+            "
+          ></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contrib' %}">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <label class="toggle-switch mb-0">
+                <input type="checkbox" id="theme-toggle" />
+                <span class="slider"></span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="column left-column">
+        <div class="column-content">
+          <h3 class="chead">Communities</h3>
+          <hr />
+          <div class="community-list">
+            <ul style="list-style-type: none; padding-left: 0; width: 100%">
+              {% for community in communities %}
+              <li>
+                <a
+                  href="{% url 'community_detail' community.pk %}"
+                  style="color: white; text-decoration: none"
+                >
+                  <button class="community-item">
+                    {{ community.name }}
+                  </button></a
+                >
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="column middle-column">
+        <div class="sp" id="sp">
+          <h1 class="heading">Welcome to <strong>ConnecTech</strong></h1>
+          <p class="lead text-center" style="margin-top: -10px">
+            Connecting technology and people like never before.
+          </p>
+        </div>
+        {% for post in posts %}
+        <div class="pc">
+          <h4 class="pun">{{ post.user.username }}</h4>
+          <div class="created-time">
+            <i class="fas fa-clock"></i>
+            <div class="time-card">{{ post.created_at }}</div>
+          </div>
+          <img
+            src="{{ post.image.url }}"
+            alt="Image"
+            title="{{post.description}}"
+          />
+          <div class="post-details">
+            {% comment %}
+            <form
+              action="{% url 'like_post' post.id %}"
+              method="POST"
+              class="like-form"
+            >
+              {% csrf_token %}
+              <button
+                type="submit"
+                class="like-button {% if user in post.likes.all %}liked{% endif %}"
+              >
+                <i class="fas fa-heart"></i>
+                <span class="likes-count">{{ post.total_likes }}</span>
+              </button>
+            </form>
+            {% endcomment %} {% if post.description %}
+            <p class="description">{{ post.description }}</p>
+            <span class="read-more">Read more</span>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+        <button class="btn" data-toggle="modal" data-target="#postModal">
+          ➕
+        </button>
+      </div>
+      <div class="column right-column">
+        <div class="right1-column-content">
+          <h2 class="chead">Idea Box 💡</h2>
+          <hr />
+          <div class="ideas-container">
+            {% for idea in ideas %}
+            <div class="idea">
+              <a class="ideaN" href="{% url 'idea_detail' idea.id %}"
+                >{{ idea.title }}</a
+              >
+            </div>
+            {% endfor %}
+          </div>
+          <button
+            class="new-idea-btn"
+            onclick="document.getElementById('ideaForm').style.display='block'"
+          >
+            New Idea
+          </button>
+          <div id="ideaForm" class="modal">
+            <form class="modal-content" method="post">
+              {% csrf_token %} {{ form.as_p }}
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+        <div class="right2-column-content">
+          {% comment %}
+          <div class="G">
+            <a href="https://meet.google.com/landing?pli=1"
+              ><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHYQvwh49wzcGC-_rouv-nSjd4btFc-zRp9w&s"
+                alt="Meet"
+                class="Image"
+            /></a>
+            <a href="https://colab.research.google.com/"
+              ><img
+                src="https://rebornix.gallerycdn.vsassets.io/extensions/rebornix/colab-keymap/0.0.4/1629407708519/Microsoft.VisualStudio.Services.Icons.Default"
+                alt="Colab"
+                class="Image"
+            /></a>
+          </div>
+          {% endcomment %}
+          <a href="https://colab.research.google.com/" target="_blank"
+            ><h3 id="i" class="fas fa-book"></h3
+          ></a>
+          <a href="https://meet.google.com/landing?pli=1" target="_blank"
+            ><h3 id="i" class="fas fa-video"></h3
+          ></a>
+        </div>
+        <div class="right2-column-content">
+          <a href="#"
+            >Profile 🔜
+            <h6 style="font-size: 10px">working on it ⏰</h6></a
+          >
+        </div>
+      </div>
+    </main>
+    <!-- Post Modal -->
+    <div
+      class="modal fade"
+      id="postModal"
+      tabindex="-1"
+      aria-labelledby="postModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="postModalLabel" style="color: black">
+              Create New Post 📸
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              method="post"
+              enctype="multipart/form-data"
+              action="{% url 'create_post' %}"
+            >
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="id_image" style="color: black">Image</label>
+                <input
+                  type="file"
+                  class="form-control-file"
+                  id="id_image"
+                  name="image"
+                />
+              </div>
+              <div class="form-group">
+                <label for="id_description" style="color: black"
+                  >Description</label
+                >
+                <textarea
+                  class="form-control"
+                  id="id_description"
+                  name="description"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Social Media Follow Pop-up -->
+    <div id="social-media-popup" class="popup">
+      <div class="popup-content">
+        <span class="close-button" onclick="closePopup()">&times;</span>
+        <h2>Follow Me</h2>
+        <p>Stay connected with me on social media!</p>
+        <div class="social-icons">
+          <a
+            href="https://www.facebook.com/yourprofile"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://twitter.com/yourprofile"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fas fa-globe"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/yourprofile"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/yourprofile"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      // Save scroll position before form submission
+      document.querySelectorAll(".like-form").forEach(function (form) {
+        form.addEventListener("submit", function () {
+          const scrollPosition = window.scrollY;
+          localStorage.setItem("scrollPosition", scrollPosition);
+        });
+      });
+
+      // Restore scroll position after page reload
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollPosition = localStorage.getItem("scrollPosition");
+        if (scrollPosition) {
+          window.scrollTo(0, parseInt(scrollPosition));
+          localStorage.removeItem("scrollPosition");
+        }
+
+        document.querySelectorAll(".read-more").forEach(function (button) {
+          button.addEventListener("click", function () {
+            const description = button.previousElementSibling;
+            description.classList.toggle("expanded");
+            button.textContent = description.classList.contains("expanded")
+              ? "Read less"
+              : "Read more";
+          });
+        });
+      });
+    </script>
+    <script>
+      // Check for saved theme preference in localStorage
+      const currentTheme = localStorage.getItem("theme");
+      if (currentTheme) {
+        document.body.classList.add(currentTheme);
+        if (currentTheme === "light-theme") {
+          document.getElementById("theme-toggle").checked = true;
+        }
+      }
+
+      // Toggle theme button
+      const themeToggleButton = document.getElementById("theme-toggle");
+      themeToggleButton.addEventListener("change", function () {
+        document.body.classList.toggle("light-theme");
+
+        // Save the current theme preference to localStorage
+        if (document.body.classList.contains("light-theme")) {
+          localStorage.setItem("theme", "light-theme");
+        } else {
+          localStorage.removeItem("theme");
+        }
+      });
+      window.onclick = function (event) {
+        if (event.target == document.getElementById("ideaForm")) {
+          document.getElementById("ideaForm").style.display = "none";
+        }
+      };
+      // JavaScript to handle Social Media Follow Pop-up
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(showPopup, 10000); // Show the pop-up after 10 seconds
+      });
+
+      function showPopup() {
+        document.getElementById("social-media-popup").style.display = "block";
+      }
+
+      function closePopup() {
+        document.getElementById("social-media-popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

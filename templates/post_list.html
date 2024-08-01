@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posts</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      img {
+        width: 400px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        margin-top: -5px;
+      }
+      .pc {
+        background-color: rgba(31, 145, 109, 0.555);
+        width: 440px;
+        border-radius: 20px;
+        box-shadow: black 0px 0px 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      .pun {
+        margin-left: 20px;
+        color: rgb(6, 79, 52);
+        margin-top: 0px;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+      .post-details {
+        display: flex;
+        align-items: center;
+        margin-left: 40px;
+      }
+      .description {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+      }
+      .description.expanded {
+        white-space: normal;
+        max-width: none;
+      }
+      .read-more {
+        color: rgba(0, 255, 225, 0.58);
+        cursor: pointer;
+        margin-left: 5px;
+      }
+      .like-button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: rgb(59, 91, 100);
+        font-size: 1.5em;
+        margin-right: 10px;
+      }
+      .like-button.liked {
+        color: rgb(5, 87, 11);
+      }
+      .like-button .likes-count {
+        margin-left: 5px;
+        font-size: 1em;
+      }
+      .created-time {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin-right: 10px;
+        position: relative;
+      }
+      .created-time i {
+        margin-right: 5px;
+      }
+      .time-card {
+        display: none;
+        position: relative;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        top: 20px;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Posts</h2>
+    {% for post in posts %}
+    <div class="pc">
+      <h2 class="pun">{{ post.user.username }}</h2>
+      <img src="{{ post.image.url }}" alt="Image" />
+      {% comment %}
+      <hr />
+      {% endcomment %}
+      <div class="post-details">
+        <form
+          action="{% url 'like_post' post.id %}"
+          method="POST"
+          class="like-form"
+        >
+          {% csrf_token %}
+          <button
+            type="submit"
+            class="like-button {% if user in post.likes.all %}liked{% endif %}"
+          >
+            <i class="fas fa-heart"></i>
+            <span class="likes-count">{{ post.total_likes }}</span>
+          </button>
+        </form>
+        <div class="created-time">
+          <i class="fas fa-clock"></i>
+          <div class="time-card">{{ post.created_at }}</div>
+        </div>
+        {% if post.description %}
+        <p class="description">{{ post.description }}</p>
+        <span class="read-more">Read more</span>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+
+    <script>
+      // Save scroll position before form submission
+      document.querySelectorAll(".like-form").forEach(function (form) {
+        form.addEventListener("submit", function () {
+          const scrollPosition = window.scrollY;
+          localStorage.setItem("scrollPosition", scrollPosition);
+        });
+      });
+
+      // Restore scroll position after page reload
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollPosition = localStorage.getItem("scrollPosition");
+        if (scrollPosition) {
+          window.scrollTo(0, parseInt(scrollPosition));
+          localStorage.removeItem("scrollPosition");
+        }
+
+        document.querySelectorAll(".read-more").forEach(function (button) {
+          button.addEventListener("click", function () {
+            const description = button.previousElementSibling;
+            description.classList.toggle("expanded");
+            button.textContent = description.classList.contains("expanded")
+              ? "Read less"
+              : "Read more";
+          });
+        });
+
+        document.querySelectorAll(".created-time").forEach(function (timeElem) {
+          timeElem.addEventListener("click", function () {
+            const timeCard = timeElem.querySelector(".time-card");
+            timeCard.style.display =
+              timeCard.style.display === "block" ? "none" : "block";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

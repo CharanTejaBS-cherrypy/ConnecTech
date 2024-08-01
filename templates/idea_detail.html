@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ idea.title }}</title>
+    <style>
+      body {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+      .idea-detail {
+        border-radius: 40px;
+        padding: 20px;
+        border: 2px double #ccc;
+        margin: 20px;
+        margin-bottom: 50px;
+        background-color: rgb(212, 255, 212);
+      }
+      h2 {
+        color: darkseagreen;
+        text-shadow: black 0px 0px 1px;
+        font-size: 40px;
+      }
+      p {
+        color: darkblue;
+        font-size: 25px;
+      }
+      strong {
+        color: brown;
+        font-size: 30px;
+        font-weight: bolder;
+      }
+      button {
+        float: right;
+        border-radius: 32px;
+        background-color: rgb(42, 133, 105);
+        font-size: 30px;
+        position: relative;
+      }
+      a {
+        text-decoration: none;
+        color: rgb(214, 255, 241);
+      }
+    </style>
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    {% endcomment %}
+  </head>
+  <body>
+    <div class="idea-detail">
+      <h2>{{ idea.title }}</h2>
+      <p><strong>Domain:</strong> {{ idea.domain }}</p>
+      <p><strong>Description:</strong> {{ idea.description }}</p>
+      <!-- <p>{{ idea.email }}</p> -->
+      <button><a href="mailto:{{ idea.email }}">Collaborate</a></button>
+    </div>
+  </body>
+</html>
